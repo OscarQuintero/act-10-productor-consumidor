@@ -1,2 +1,2 @@
-# act-10-productor-consumidor
-Seminario Sistemas Operativos
+# Problema del Productor-Consumidor
+Seminario de Sistemas Operativos

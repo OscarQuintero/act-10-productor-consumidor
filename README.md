@@ -10,4 +10,3 @@ Oscar Quintero
 Archivo principal del proyecto: 
 
 -[productor-consumidor.py](https://github.com/OscarQuintero/act-10-productor-consumidor/blob/main/productor-consumidor.py)
-

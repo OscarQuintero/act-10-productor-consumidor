@@ -4,8 +4,9 @@ import time
 from collections import deque
 import threading 
 import os
+from pynput import keyboard
 
-RETARDO = 0.5
+RETARDO = 2
 semaforoGeneral = -1 
 semaforoTurno = 0 
 
@@ -31,6 +32,14 @@ def limpiarPantalla():
 	elif(os.name == "ct" or os.name == "nt" or os.name == "dos"):
 		os.system("cls")
 	
+def pulsa(k):
+	# print('Se ha pulsado la tecla ' + str(k))
+	pass
+def suelta(k):
+	# print('Se ha soltado la tecla ' + str(k))
+	if k == keyboard.Key.esc:
+		exit()
+	pass
 
 class Productor:
 	"""docstring for ClassName"""
@@ -109,14 +118,15 @@ contenedor.imprimir()
 print("Iniciando proceso aleatorio de designación de turnos")
 time.sleep(3)
 
-
+escuchador = keyboard.Listener(pulsa, suelta)
+escuchador.start()
 #Se elige al azar el turno del consumidor o del productor
 #El consumidor es 1 y el productor 2
 CONSUMIDOR = 1
 PRODUCTOR = 2
 
-
-for vuelta in range(100):
+while escuchador.is_alive():
+	
 	limpiarPantalla()
 	turno = random.randint(1,2)
 
@@ -176,7 +186,6 @@ for vuelta in range(100):
 	contenedor.imprimir()
 	time.sleep(RETARDO)	
 
-exit()
 
 
 

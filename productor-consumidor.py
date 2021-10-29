@@ -186,7 +186,7 @@ while escuchador.is_alive():
 	contenedor.imprimir()
 	time.sleep(RETARDO)	
 
-
+exit()
 
 
 
